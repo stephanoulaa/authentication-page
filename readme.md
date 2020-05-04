@@ -1,3 +1,2 @@
--make license when done
-
--use "nodemon new-auth" to run
+HOW TO RUN:
+   -type "nodemon new-auth" in the terminal
