@@ -1,13 +1,19 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 var User = require('../models/user');
 
 
 // GET route for reading data
 router.get('/', function (req, res, next) {
-  return res.sendFile(path.join(__dirname + '/templateLogReg/index.html'));
+  return res.sendFile(path.join(__dirname + '/../templateLogReg/index.html'));
 });
 
+
+// GET route for reading data
+router.get('/profile', function (req, res, next) {
+  return res.sendFile(path.join(__dirname + '/../templateLogReg/profile.html'));
+});
 
 //POST route for updating data
 router.post('/', function (req, res, next) {
@@ -69,7 +75,8 @@ router.get('/profile', function (req, res, next) {
           err.status = 400;
           return next(err);
         } else {
-          return res.send('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
+          console.log("sup")
+          return res.redirect('/profile')
         }
       }
     });
